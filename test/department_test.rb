@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require './lib/department'
 
 class DepartmentTest < Minitest::Test
   def test_it_exists
@@ -13,7 +14,7 @@ class DepartmentTest < Minitest::Test
 
     assert_equal "Parks and Recreation", department.name
   end
-
+  #
   def test_it_has_expenses
     department = Department.new("Parks and Recreation")
 
