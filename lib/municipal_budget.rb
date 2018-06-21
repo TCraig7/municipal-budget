@@ -27,4 +27,10 @@ class MunicipalBudget
       expense.amount.to_f
     end.sum
   end
+
+  def alphabetical_budget_categories
+    @expenses.map do |expense|
+      expense.budget_category.name.split(' ').pop
+    end.sort
+  end
 end
