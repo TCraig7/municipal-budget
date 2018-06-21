@@ -74,4 +74,19 @@ class DepartmentTest < Minitest::Test
 
     assert_equal [expense_1.budget_category, expense_2.budget_category], municipal_budget.budget_categories
   end
+
+  def test_it_can_return_total_expenses
+    municipal_budget = MunicipalBudget.new
+    department = Department.new("Parks and Recreation")
+    budget_category_1 = BudgetCategory.new("Printing")
+    expense_1 = Expense.new(department, budget_category_1, "656.50")
+
+    budget_category_2 = BudgetCategory.new("Appliances")
+    expense_2 = Expense.new(department, budget_category_2, "20.45")
+
+    municipal_budget.add_expense(expense_1)
+    municipal_budget.add_expense(expense_2)
+
+    assert_equal 676.95, municipal_budget.total_expenses
+  end
 end

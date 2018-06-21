@@ -20,5 +20,11 @@ class MunicipalBudget
     @expenses.map do |expense|
       expense.budget_category
     end
-  end 
+  end
+
+  def total_expenses
+    @expenses.map do |expense|
+      expense.amount.to_f
+    end.sum
+  end
 end
